@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo → Comic</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@1.0.0"
+        }
+      }
+    </script>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Photo → Comic</h1>
+            <p>Upload a real photo and watch it turn into a high-quality comic-style version.</p>
+        </header>
+
+        <section class="controls">
+            <div class="file-upload">
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <label for="file-input" class="button">Upload Photo</label>
+                <span id="file-name">No file chosen</span>
+            </div>
+            
+            <div class="style-select">
+                <label for="comic-style">Comic Style:</label>
+                <select id="comic-style">
+                    <option value="western">Western Comic</option>
+                    <option value="manga">Manga</option>
+                    <option value="pop-art">Pop-art Halftone</option>
+                    <option value="cel-shade">Clean Cel-shade</option>
+                </select>
+            </div>
+
+            <div class="toggles">
+                <label><input type="checkbox" id="keep-background"> Keep Background</label>
+                <label><input type="checkbox" id="add-frame"> Add Comic Panel Frame</label>
+            </div>
+
+            <button id="convert-button" disabled>Convert to Comic</button>
+        </section>
+
+        <section id="results" class="results">
+            <div class="image-container" id="original-container">
+                <h2>Original</h2>
+                <img id="original-image" src="https://storage.googleapis.com/maker-suite-media/user-prompt-images/1719521190539-photo-comic-placeholder.png" alt="Original user-uploaded photo">
+            </div>
+            <div class="image-container" id="comic-container">
+                <h2>Comic</h2>
+                <div id="comic-output">
+                   <div class="placeholder">Your comic version will appear here.</div>
+                </div>
+                 <a href="#" id="download-button" class="button" style="display: none;" download="comic-image.png">Download</a>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Photo → Comic",
+  "description": "Upload a photo and convert it into various comic book styles using an image-editing AI model.",
+  "requestFramePermissions": []
+}

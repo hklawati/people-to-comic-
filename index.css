@@ -1,0 +1,181 @@
+:root {
+    --background-color: #1e1e1e;
+    --surface-color: #2a2a2e;
+    --primary-color: #4a90e2;
+    --primary-hover-color: #5aa1f2;
+    --text-color: #f0f0f0;
+    --text-muted-color: #a0a0a0;
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+header p {
+    color: var(--text-muted-color);
+    font-size: 1.1rem;
+}
+
+.controls {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.button, select {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover, select:hover {
+    background-color: var(--primary-hover-color);
+}
+
+button:disabled, button:disabled:hover {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#file-name {
+    color: var(--text-muted-color);
+    font-style: italic;
+}
+
+.style-select, .toggles {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+select {
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 1em;
+}
+
+.toggles label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.image-container {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.image-container h2 {
+    margin: 0;
+    color: var(--text-muted-color);
+    font-weight: 500;
+}
+
+.image-container img, #comic-output {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+#comic-output {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #1a1a1a;
+}
+#comic-output .placeholder{
+    color: var(--text-muted-color);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #444;
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    .controls {
+        flex-direction: column;
+    }
+    .results {
+        grid-template-columns: 1fr;
+    }
+}
